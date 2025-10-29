@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Company Validator</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>Company Validator</h1>
+        <p>Trust scores, autofill, and application tracking at a glance.</p>
+      </header>
+
+      <section class="card" id="trust-card">
+        <h2>Current page</h2>
+        <p id="trust-status">Open a job listing to view trust insights.</p>
+      </section>
+
+      <section class="card">
+        <h2>Application tracker</h2>
+        <div class="status-line">
+          <span>Google Sheet</span>
+          <strong id="sheet-status">Not connected</strong>
+        </div>
+        <div class="status-line">
+          <span>Queued submissions</span>
+          <strong id="queue-count">0</strong>
+        </div>
+        <div class="actions">
+          <button id="open-options" type="button">Setup &amp; resume</button>
+          <button id="flush-queue" type="button" class="primary">Sync queued</button>
+        </div>
+        <button id="view-sheet" type="button" class="link">Open tracker sheet</button>
+        <ul id="queue-items"></ul>
+        <p class="notice" id="queue-notice"></p>
+      </section>
+
+      <section class="card">
+        <h2>Alias protection</h2>
+        <p>Your application aliases use <strong id="alias-domain">gmail.com</strong>. Reset from job pages if needed.</p>
+      </section>
+    </main>
+    <script type="module" src="dist/popup.js"></script>
+  </body>
+</html>
