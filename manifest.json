@@ -1,1 +1,9 @@
-asd
+{
+  "manifest_version": 3,
+  "name": "Valid Company",
+  "description": "Chrome extension scaffolding for the Valid Company project.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Valid Company"
+  }
+}
