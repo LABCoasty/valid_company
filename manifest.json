@@ -1,1 +1,55 @@
-asd
+{
+  "manifest_version": 3,
+  "name": "Company Validator",
+  "version": "0.1.0",
+  "description": "Helps job seekers evaluate company trustworthiness, autofill applications, and track submissions directly from job boards.",
+  "action": {
+    "default_title": "Company Validator",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "identity",
+    "scripting",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.linkedin.com/*",
+    "https://*.indeed.com/*",
+    "https://*.workday.com/*",
+    "https://*.greenhouse.io/*",
+    "https://*.lever.co/*",
+    "https://api.company-validator.local/*",
+    "http://localhost:8000/*"
+  ],
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_OAUTH_CLIENT_ID",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.linkedin.com/*",
+        "https://*.indeed.com/*",
+        "https://*.workday.com/*",
+        "https://*.greenhouse.io/*",
+        "https://*.lever.co/*"
+      ],
+      "js": ["dist/contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "dist/background.js",
+    "type": "module"
+  },
+  "options_page": "options.html"
+}
